@@ -1,11 +1,1674 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="th">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>ดุสิต ไพศาล — UX/UI Designer</title>
+    <meta name="description" content="ดุสิต ไพศาล — UX/UI Designer จากมหาวิทยาลัยราชภัฏอุดรธานี — Portfolio และผลงาน">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Raleway:wght@600;800&family=Noto+Sans+Thai:wght@300;400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+    <style>
+        :root {
+            /* updated palette: deep indigo background with warm gold accent */
+            --bg: #071331;
+            /* deep indigo */
+            --card: #071e2b;
+            /* slightly lighter card */
+            --accent: #dfa400;
+            --muted: #9aa4b2;
+            --glass: rgba(255, 255, 255, 0.04);
+            color-scheme: dark;
+        }
+
+        * {
+            box-sizing: border-box
+        }
+
+        html,
+        body {
+            height: 100%
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Noto Sans Thai', 'Raleway', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+            /* subtle two-layer gradient with a soft radial highlight */
+
+            background-color: rgb(4, 0, 22);
+            color: #e6eef6;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            padding: 32px;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto
+        }
+
+        /* Card */
+        .hero {
+            display: grid;
+            grid-template-columns: 320px 1fr;
+            gap: 32px;
+            align-items: center;
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.01));
+            border-radius: 16px;
+            padding: 28px;
+            box-shadow: 0 8px 30px rgba(2, 6, 23, 0.7);
+            border: 1px solid rgba(255, 255, 255, 0.03);
+        }
+
+        .avatar {
+            /* fluid avatar size: clamps between small and large screens */
+            width: clamp(160px, 26vw, 280px);
+            height: clamp(160px, 26vw, 280px);
+            border-radius: 14px;
+            overflow: hidden;
+            flex-shrink: 0;
+            border: 4px solid rgba(255, 255, 255, 0.04);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #0b1220, #071022);
+        }
+
+        .avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block
+        }
+
+        h1 {
+            font-weight: 800;
+            margin: 0 0 8px;
+            font-size: 34px;
+            letter-spacing: 0.2px
+        }
+
+        .name-en {
+            font-weight: 600;
+            color: var(--muted);
+            margin-bottom: 8px
+        }
+
+        .role {
+            font-size: 18px;
+            color: var(--accent);
+            font-weight: 700;
+            margin-bottom: 12px
+        }
+
+        .intro {
+            color: var(--muted);
+            line-height: 1.6;
+            margin-bottom: 18px
+        }
+
+        .contacts {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap
+        }
+
+        .chip {
+            background: var(--glass);
+            padding: 10px 14px;
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.03);
+            color: var(--muted);
+            display: inline-flex;
+            align-items: center;
+            gap: 10px
+        }
+
+        .chip i {
+            color: var(--accent);
+            font-size: 18px
+        }
+
+        .actions {
+            margin-top: 18px;
+            display: flex;
+            gap: 12px
+        }
+
+        .btn {
+            background: linear-gradient(90deg, var(--accent), #ffb84d);
+            color: #071022;
+            padding: 10px 16px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 700
+        }
+
+        .btn-outline {
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            padding: 10px 14px;
+            border-radius: 10px;
+            color: var(--muted);
+            text-decoration: none
+        }
+
+        /* Details */
+        .grid-two {
+            display: grid;
+            grid-template-columns: 1fr 360px;
+            gap: 28px;
+            margin-top: 28px
+        }
+
+        .card {
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.01), rgba(255, 255, 255, 0.00));
+            padding: 20px;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.03)
+        }
+
+        .section-title {
+            font-size: 16px;
+            color: var(--muted);
+            margin-bottom: 12px;
+            font-weight: 700
+        }
+
+        .skills {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap
+        }
+
+        .skill {
+            background: rgba(255, 255, 255, 0.03);
+            padding: 8px 10px;
+            border-radius: 8px;
+            font-weight: 600;
+            color: var(--muted);
+        }
+
+        .projects {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 12px
+        }
+
+        .proj {
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.01), rgba(255, 255, 255, 0.00));
+            padding: 12px;
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.03)
+        }
+
+        .proj img {
+            width: 100%;
+            /* use aspect-ratio for responsive image height when supported */
+            height: auto;
+            aspect-ratio: 16/9;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 8px;
+            max-height: 320px;
+        }
+
+        .proj h4 {
+            margin: 6px 0 4px
+        }
+
+        .proj p {
+            margin: 0;
+            color: var(--muted);
+            font-size: 13px
+        }
+
+        /* filter select */
+        .filter-select {
+            background: var(--card);
+            color: var(--muted);
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            padding: 8px 10px;
+            border-radius: 8px
+        }
+
+        /* project card header (clickable) */
+        .proj {
+            overflow: hidden;
+            transition: transform .18s ease, box-shadow .18s ease
+        }
+
+        .proj:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 10px 30px rgba(2, 6, 23, 0.6)
+        }
+
+        .proj-head {
+            display: flex;
+            gap: 12px;
+            align-items: flex-start;
+            cursor: pointer
+        }
+
+        .proj-head img {
+            width: 88px;
+            height: 68px;
+            object-fit: cover;
+            border-radius: 8px;
+            flex-shrink: 0
+        }
+
+        .proj-sub {
+            color: var(--muted);
+            font-size: 13px;
+            margin: 4px 0
+        }
+
+        /* collapsible details */
+        .proj-details {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height .28s ease;
+            padding-top: 0;
+            margin-top: 0
+        }
+
+        .proj-details p {
+            margin: 8px 0;
+            color: var(--muted)
+        }
+
+        .proj-details ul {
+            margin: 0 0 8px 18px;
+            color: var(--muted)
+        }
+
+        .proj-details a {
+            color: var(--accent)
+        }
+
+        /* ---- Styles for original work section (keeps existing data) ---- */
+        .work__filters {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-bottom: 14px
+        }
+
+        .work__item {
+            cursor: pointer;
+            padding: 8px 12px;
+            border-radius: 999px;
+            background: rgba(255, 255, 255, 0.02);
+            color: var(--muted);
+            border: 1px solid transparent;
+            transition: all .18s ease;
+            font-weight: 600
+        }
+
+        .work__item:hover {
+            transform: translateY(-3px);
+            border-color: rgba(255, 255, 255, 0.03)
+        }
+
+        .work__item.active-work {
+            background: linear-gradient(90deg, var(--accent), #ffb84d);
+            color: #071022;
+            border-color: transparent
+        }
+
+        .work__container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 16px;
+            margin-top: 12px
+        }
+
+        .work__card {
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.01), rgba(255, 255, 255, 0.00));
+            padding: 14px;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.03);
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            overflow: hidden
+        }
+
+        .work__img {
+            width: 100%;
+            height: auto;
+            aspect-ratio: 16/9;
+            object-fit: cover;
+            border-radius: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.03);
+            max-height: 320px;
+        }
+
+        .work__title {
+            margin: 8px 0 4px;
+            font-size: 18px
+        }
+
+        .details__description {
+            color: var(--muted);
+            font-size: 13px;
+            margin: 0
+        }
+
+        .work__button {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: auto;
+            padding: 8px 10px;
+            border-radius: 8px;
+            background: transparent;
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            color: var(--muted);
+            cursor: pointer
+        }
+
+        .work__button i {
+            color: var(--accent)
+        }
+
+        /* details panel (collapsed by default) */
+        .portfolio__item-details {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height .3s ease, padding .18s ease;
+            margin-top: 0
+        }
+
+        .portfolio__item-details.open {
+            padding-top: 10px;
+            max-height: 600px
+        }
+
+        .details__title {
+            margin: 0 0 6px
+        }
+
+        .details__info {
+            color: var(--muted);
+            margin: 6px 0 0 18px
+        }
+
+        @media (max-width:720px) {
+            .work__img {
+                aspect-ratio: 4/3;
+                max-height: 180px;
+            }
+
+            .work__title {
+                font-size: 16px
+            }
+        }
+
+        /* Modal styles for project details — beautiful & symmetrical */
+        .modal {
+            position: fixed;
+            inset: 0;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(4px);
+            z-index: 1200;
+            padding: 24px;
+            animation: fadeIn .2s ease-out
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0
+            }
+
+            to {
+                opacity: 1
+            }
+        }
+
+        .modal.open {
+            display: flex
+        }
+
+        .modal.open .modal-dialog {
+            animation: slideUp .3s cubic-bezier(0.34, 1.56, 0.64, 1)
+        }
+
+        @keyframes slideUp {
+            from {
+                transform: translateY(40px);
+                opacity: 0
+            }
+
+            to {
+                transform: translateY(0);
+                opacity: 1
+            }
+        }
+
+        .modal-dialog {
+            width: 100%;
+            max-width: 920px;
+            background: linear-gradient(180deg, rgba(11, 18, 32, 0.95), rgba(7, 16, 34, 0.95));
+            border-radius: 16px;
+            padding: 0;
+            box-shadow: 0 25px 80px rgba(0, 0, 0, 0.8), 0 0 1px rgba(223, 164, 0, 0.1);
+            border: 1px solid rgba(223, 164, 0, 0.08);
+            color: inherit;
+            display: flex;
+            flex-direction: column;
+            max-height: 90vh
+        }
+
+        .modal-header {
+            /* tighten padding so title and close align near edges */
+            padding: 20px 20px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .modal-title {
+            font-size: 26px;
+            font-weight: 800;
+            color: #e6eef6;
+            margin: 0;
+            letter-spacing: 0.3px;
+
+
+        }
+
+        .modal-close {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            width: 40px;
+            height: 40px;
+            border-radius: 8px;
+            color: var(--muted);
+            font-size: 24px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all .2s ease;
+            flex-shrink: 0;
+            /* ensure no extra margin so it hugs right padding */
+            margin: 0;
+        }
+
+        .modal-close:hover {
+            background: rgba(223, 164, 0, 0.15);
+            color: var(--accent);
+            border-color: rgba(223, 164, 0, 0.3)
+        }
+
+        .modal-body {
+            padding: 28px 32px;
+            overflow-y: auto;
+            color: var(--muted);
+            line-height: 1.8
+        }
+
+        .modal-body h3 {
+            color: #e6eef6;
+            font-size: 18px;
+            margin: 0 0 12px;
+            font-weight: 700
+        }
+
+        .modal-body p {
+            margin: 0 0 16px;
+            color: var(--muted)
+        }
+
+        .modal-body ul {
+            margin: 16px 0 16px 20px;
+            padding: 0;
+            color: var(--muted)
+        }
+
+        .modal-body li {
+            margin-bottom: 8px;
+            list-style: none;
+            padding-left: 20px;
+            position: relative
+        }
+
+        .modal-body li:before {
+            content: "▪";
+            position: absolute;
+            left: 0;
+            color: var(--accent)
+        }
+
+        .modal-body a {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color .2s
+        }
+
+        .modal-body a:hover {
+            color: #ffb84d
+        }
+
+        .modal-body img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            margin: 16px 0;
+            border: 1px solid rgba(255, 255, 255, 0.03)
+        }
+
+        @media (max-width:768px) {
+            .modal {
+                padding: 16px
+            }
+
+            .modal-header {
+                padding: 20px 24px
+            }
+
+            .modal-body {
+                padding: 20px 24px
+            }
+
+            .modal-title {
+                font-size: 22px
+            }
+
+            .modal-close {
+                width: 36px;
+                height: 36px;
+                font-size: 20px
+            }
+        }
+
+        /* Scrollbar styling for modal body */
+        .modal-body::-webkit-scrollbar {
+            width: 6px
+        }
+
+        .modal-body::-webkit-scrollbar-track {
+            background: transparent
+        }
+
+        .modal-body::-webkit-scrollbar-thumb {
+            background: rgba(223, 164, 0, 0.4);
+            border-radius: 3px
+        }
+
+        .modal-body::-webkit-scrollbar-thumb:hover {
+            background: rgba(223, 164, 0, 0.6)
+        }
+
+        /* Symmetric two-column layout inside modal body */
+        .modal-grid {
+            display: grid;
+            grid-template-columns: 1fr 380px;
+            gap: 28px;
+            align-items: start
+        }
+
+        .modal-image {
+            display: block;
+            width: 100%;
+            height: 100%;
+            align-self: stretch
+        }
+
+        .modal-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            box-shadow: 0 10px 30px rgba(2, 6, 23, 0.6)
+        }
+
+        .modal-content {
+            min-width: 0;
+            color: var(--muted);
+            line-height: 1.8
+        }
+
+        .modal-content .details__title {
+            color: #e6eef6;
+            margin-top: 0
+        }
+
+        .modal-content .details__info {
+            margin-top: 8px
+        }
+
+        /* If no image is present, allow the content to center and use full width */
+        .modal-grid.no-image {
+            grid-template-columns: 1fr
+        }
+
+        /* Testimonials / certificate card styling */
+        .testimonial__card {
+            background: rgba(255,255,255,0.02);
+            padding: 12px;
+            border-radius: 12px;
+            border: 1px solid rgba(255,255,255,0.03);
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            align-items: flex-start;
+            min-height: 160px;
+            box-shadow: 0 6px 18px rgba(2,6,23,0.45);
+        }
+
+        .testimonial__img {
+            width: 100%;
+            height: auto;
+            max-height: 220px;
+            object-fit: cover;
+            border-radius: .5rem;
+            border: 1px solid rgba(255,255,255,0.03);
+            display: block;
+        }
+
+        .testimonial__description { margin: 0; color: var(--muted); }
+        .testimonial__date { color: var(--muted); font-size: 13px; margin-top: 6px }
+
+        /* Make testimonials grid-friendly if Swiper isn't initialized */
+        .testimonials__container .swiper-wrapper {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 12px;
+            align-items: start;
+            padding: 8px 0;
+        }
+
+        /* Qualification / timeline polish */
+        .qualification__container .timeline {
+            margin-top: 10px;
+        }
+
+        .timeline__item {
+            background: rgba(255,255,255,0.01);
+            padding: 10px 12px;
+            border-radius: 10px;
+            border: 1px solid rgba(255,255,255,0.02);
+            margin-bottom: 10px;
+            position: relative;
+        }
+
+        .circle__dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--accent);
+            position: absolute;
+            left: -22px;
+            top: 16px;
+            box-shadow: 0 4px 12px rgba(223,164,0,0.12);
+        }
+
+        .timeline__title { margin: 0 0 6px; font-size: 14px }
+        .timeline__text { margin: 0; color: var(--muted); font-size: 13px }
+        .timeline__date { color: var(--muted); font-size: 12px; margin-top: 6px; display:block }
+
+        /* Global polish */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 12px;
+        }
+
+        header { background: transparent }
+
+        /* Avatar ring + subtle glow */
+        .avatar {
+            width: clamp(120px, 18vw, 260px);
+            height: clamp(120px, 18vw, 260px);
+            border-radius: 999px;
+            padding: 6px;
+            display: grid;
+            place-items: center;
+            background: linear-gradient(180deg, rgba(223,164,0,0.14), rgba(255,184,77,0.06));
+            box-shadow: 0 10px 30px rgba(2,6,23,0.35);
+        }
+
+        .avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 999px;
+            display: block;
+            border: 3px solid rgba(255,255,255,0.04);
+        }
+
+        /* Section headings */
+        .section__title {
+            font-weight: 800;
+            letter-spacing: 0.6px;
+            color: #eaf0fb;
+            position: relative;
+            margin-bottom: 12px;
+        }
+
+        .section__title::after {
+            content: '';
+            display: block;
+            width: 48px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent), #ffb84d);
+            border-radius: 999px;
+            margin-top: 8px;
+            opacity: 0.95;
+        }
+
+        /* Buttons and chips refinement */
+        .btn {
+            background: linear-gradient(90deg, var(--accent), #ffb84d);
+            color: #071022;
+            padding: 10px 14px;
+            border-radius: 10px;
+            border: none;
+            box-shadow: 0 8px 24px rgba(223,164,0,0.08);
+            transition: transform .16s ease, box-shadow .16s ease;
+            font-weight: 700;
+        }
+
+        .btn:hover { transform: translateY(-4px); box-shadow: 0 18px 48px rgba(223,164,0,0.12); }
+
+        .btn-outline {
+            background: transparent;
+            color: #e6eef6;
+            border: 1px solid rgba(255,255,255,0.06);
+            padding: 8px 12px;
+            border-radius: 10px;
+            transition: background .14s, transform .14s;
+        }
+
+        .btn-outline:hover { background: rgba(255,255,255,0.02); transform: translateY(-3px) }
+
+        .chip { transition: transform .12s ease, box-shadow .12s ease }
+        .chip:hover { transform: translateY(-3px); box-shadow: 0 8px 20px rgba(2,6,23,0.25) }
+
+        /* Work card hover polish */
+        .work__card { transition: transform .22s cubic-bezier(.2,.9,.2,1), box-shadow .22s; }
+        .work__card:hover { transform: translateY(-8px); box-shadow: 0 22px 60px rgba(2,6,23,0.6) }
+        .work__card:hover .work__img { transform: scale(1.03); }
+        .work__img { transition: transform .32s ease; }
+
+        /* Reveal on scroll */
+        .reveal { opacity: 0; transform: translateY(12px); transition: opacity .6s ease, transform .6s ease; }
+        .reveal.revealed { opacity: 1; transform: translateY(0); }
+
+
+        @media (max-width:880px) {
+            .modal-grid {
+                grid-template-columns: 1fr;
+                gap: 18px
+            }
+
+            .modal-image img {
+                height: 220px;
+                object-position: center
+            }
+        }
+
+        .right-col .meta {
+            display: flex;
+            flex-direction: column;
+            gap: 10px
+        }
+
+        .meta .meta-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.02)
+        }
+
+        .meta .meta-item h4 {
+            margin: 0;
+            font-size: 13px
+        }
+
+        .meta .meta-item span {
+            color: var(--muted)
+        }
+
+        footer {
+            margin-top: 28px;
+            text-align: center;
+            color: var(--muted);
+            font-size: 13px
+        }
+
+        @media (max-width:980px) {
+            .hero {
+                grid-template-columns: 1fr;
+                gap: 18px
+            }
+
+            .grid-two {
+                grid-template-columns: 1fr;
+            }
+
+            .avatar {
+                width: 220px;
+                height: 220px;
+                margin: 0 auto
+            }
+        }
+
+        /* Responsive header/nav and container tweaks */
+        .container {
+            padding: 0 12px;
+        }
+
+        @media (max-width:720px) {
+
+            /* Stack header elements */
+            .container>header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 12px
+            }
+
+            .container>header nav {
+                width: 100%;
+                display: flex;
+                gap: 8px;
+                justify-content: flex-end
+            }
+
+            .container>header nav a {
+                padding: 8px 10px;
+                font-size: 14px
+            }
+
+            body {
+                padding: 18px
+            }
+        }
+    </style>
 </head>
+
 <body>
-    <h1>hello world</h1>
+    <div class="container">
+        <header style="display:flex;justify-content:space-between;align-items:center;margin-bottom:18px">
+            <div>
+                <strong style="font-weight:800;letter-spacing:0.6px">DURU</strong>
+                <div style="color:var(--muted);font-size:13px">Portfolio — Dusit Phaisan</div>
+            </div>
+            <nav style="display:flex;gap:12px;align-items:center">
+                <a href="#work" class="btn-outline">ผลงาน</a>
+                <a href="#about" class="btn-outline">เกี่ยวกับ</a>
+                <a href="#contact" class="btn" style="text-decoration:none">ติดต่อ</a>
+            </nav>
+        </header>
+
+        <section class="hero">
+            <div class="avatar">
+                <!-- keep your existing image path; if not present, replace with a placeholder -->
+                <img src="img-ativite/IMG_20240722_204317_144.jpg" alt="Dusit Phaisan">
+            </div>
+
+            <div>
+                <div style="display:flex;align-items:center;justify-content:space-between;gap:12px">
+                    <div>
+                        <h1>ดุสิต ไพศาล</h1>
+                        <div class="name-en">Dusit Phaisan</div>
+                        <div class="role">นักออกแบบ UX/UI | นักพัฒนา Frontend</div>
+                    </div>
+                    <div style="text-align:right;color:var(--muted);font-size:13px">
+                        เรียนที่<br>มหาวิทยาลัยราชภัฏอุดรธานี</div>
+                </div>
+
+                <p class="intro">สวัสดีครับ ผมเป็นนักออกแบบ UX/UI และนักพัฒนา Frontend
+                    ที่สนใจการออกแบบประสบการณ์ผู้ใช้และการพัฒนาเว็บไซต์ ผมสร้างผลงานและโครงการต่างๆ
+                    ไว้ที่นี่เพื่อรวบรวมและแสดงทักษะของผม</p>
+
+                <div class="contacts">
+                    <div class="chip"><i class="uil uil-line"></i>_ugboy67</div>
+                    <div class="chip"><i class="uil uil-phone"></i>096-057-9124</div>
+                    <div class="chip"><i class="uil uil-envelope"></i>no09122548@gmail.com</div>
+                    <a class="chip" href="https://www.facebook.com/boydusit.phaisan.1" target="_blank"><i
+                            class="uil uil-facebook-f"></i>Facebook</a>
+                    <a class="chip" href="https://www.instagram.com/_ugboy67/?hl=en" target="_blank"><i
+                            class="uil uil-instagram"></i>Instagram</a>
+                </div>
+
+                <div class="actions">
+                    <a href="#work" class="btn">ดูผลงาน</a>
+                    <a href="mailto:no09122548@gmail.com" class="btn-outline">ส่งอีเมล</a>
+                    <a href="#contact" class="btn-outline">ติดต่อ</a>
+                </div>
+            </div>
+        </section>
+
+        <div class="grid-two">
+            <main>
+                <section id="about" class="card" style="margin-top:0">
+                    <div class="section-title">เกี่ยวกับฉัน</div>
+                    <h3 style="margin-top:0">Hi, I'm Dusit Phaisan</h3>
+                    <p style="color:var(--muted);line-height:1.7">ผมชอบการแก้ไขปัญหาและมีความฝันอยากเป็น UX/UI Designer
+                        จึงเรียนและฝึกฝนทักษะด้านการออกแบบ ใช้เครื่องมือต่างๆ เช่น Figma, Photoshop และ Illustrator
+                        รวมถึงเขียนเว็บด้วย HTML/CSS/JavaScript และพัฒนาระบบฐานข้อมูล</p>
+
+                    <div style="margin-top:12px">
+                        <div class="section-title">ทักษะ</div>
+                        <div class="skills">
+                            <div class="skill">Figma</div>
+                            <div class="skill">Photoshop</div>
+                            <div class="skill">Illustrator</div>
+                            <div class="skill">HTML / CSS</div>
+                            <div class="skill">JavaScript</div>
+                            <div class="skill">Python</div>
+                            <div class="skill">MongoDB / SQL</div>
+                        </div>
+                    </div>
+
+                </section>
+
+                <section class="work section" id="work">
+                    <h2 data-heading="My Project" class="section__title">Contribution </h2>
+
+                    <div class="work__filters">
+                        <span class="work__item active-work" data-filter="all">All</span>
+                        <span class="work__item" data-filter=".section">Website</span>
+                        <span class="work__item" data-filter=".game">Video</span>
+                        <span class="work__item" data-filter=".design">Design</span>
+                    </div>
+
+                    <div class="work__container container grid">
+
+                        <div class="work__card mix section">
+                            <img src="img/าาาาา.png" alt="" class="work__img">
+                            <h3 class="work__title">Pitchaya Website</h3>
+                            <p class="details__description">เว็บไซต์เเนะนำวิทยาลัยภูมิพิชญคือ
+                                ผลงานในการออกเเบบเว็บที่ใช้สำหรับการเเนะนำหลักสูตรในการจัดการเรียนการสอน
+                                ในรายวิชาการออกเเบบเว็บไซต์ของ
+                                สาขาคอมพิวเตอร์ธุรกิจวิทยาลัยเทคโนโลยีภูมิพิชญภูมิพิชญ...</p>
+                            <span class="work__button">รายละเอียดเพิ่มเติม
+                                <i class="uil uil-arrow-right work__button-icon"></i>
+                            </span>
+                            <div class="portfolio__item-details">
+                                <h3 class="details__title">Pitchaya Website</h3>
+                                <p class="details__description">เว็บไซต์เเนะนำวิทยาลัยภูมิพิชญ
+                                    ผลงานในการออกเเบบเว็บไซต์ที่ใช้สำหรับการเเนะนำหลักสูตรในการจัดการเรียน
+                                    การสอนของวิทยาลัยภูมิพิชญ
+                                    ตำบลกุดจับ
+                                    อำเภอกุดจับ จังหวัดอุดรธานี<br>(เนื่องจากขาดข้อมูลบางอย่างจึงไม่สามารถพัฒนาต่อได้)
+                                </p>
+                                <ul class="details__info">
+                                    <li>ถูกสร้างเมื่อ - <span>16 มกราคม 2024</span></li>
+                                    <li>เครื่องมือ - <span>html boostap javascript</span></li>
+                                    <li>อ้างอิง - <span>Youtube : LUNGBOY</span></li>
+                                    <li>ดูเพิ่มเติม - <span><a href="https://picchaya-project.web.app/"
+                                                target="_blank">คลิกเพื่อเข้าสู่เว็บไซต์เเนะนำวิทยาลัยภูมิพิชญ</a></span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class=" work__card mix design">
+                            <img src="img/ku-logo.png" alt="" class="work__img">
+                            <h3 class="work__title">KU-BUS LogoDesign</h3>
+                            <p class="details__description">
+                                ตัวอย่างผลงานในการออกเเบบโลโก้โปรเจคการออกเเบบระบบติดตามรถบัสมหาวิทยาลัย....</p>
+                            <span class="work__button">รายละเอียดเพิ่มเติม
+                                <i class="uil uil-arrow-right work__button-icon"></i>
+                            </span>
+                            <div class="portfolio__item-details">
+                                <h3 class="details__title">KU-BUS LogoDesign</h3>
+                                <p class="details__description">
+                                    ตัวอย่างผลงานในการออกเเบบโลโก้โปรเจคการออกเเบบระบบติดตามรถบัสมหาวิทยาลัยเกษตรศาสตร์วิทยาเขตศรีราชา
+                                    ของสาขาเทคโนโลยีสารสนเทศ </p>
+                                <ul class="details__info">
+                                    <li>ถูกสร้างเมื่อ - <span>20 ธันวาคม 2020</span></li>
+                                    <li>เครื่องมือ - <span>Illustrator Photoshop canva</span></li>
+                                    <li>อ้างอิง - <span>Youtube : LUNGBOY</span></li>
+
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class=" work__card mix design">
+                            <img src="img/Project4.1.png" alt="" class="work__img">
+                            <h3 class="work__title">T-shirt Design</h3>
+                            <p class="details__description">เป็นผลงานในการออกเเบบชุดกีฬา
+                                ให้กับทางสาขาคอมพิวเตอร์ธุรกิจวิทยาลัยเทคโนโลยีภูมิพิชญ...</p>
+                            <span class="work__button">รายละเอียดเพิ่มเติม
+                                <i class="uil uil-arrow-right work__button-icon"></i>
+                            </span>
+                            <div class="portfolio__item-details">
+                                <h3 class="details__title">T-shirt Design</h3>
+                                <p class="details__description">เป็นผลงานในการออกเเบบชุดกีฬา
+                                    ให้กับทางสาขาคอมพิวเตอร์ธุรกิจวิทยาลัยเทคโนโลยีภูมิพิชญ ตำบลกุดจับ อำเภอกุดจับ
+                                    จังหวัดอุดรธานี
+                                </p>
+                                <ul class="details__info">
+                                    <li>ถูกสร้างเมื่อ - <span>28 สิงหาคม 2023</span></li>
+                                    <li>เครื่องมือ - <span>Photoshop canva</span></li>
+                                    <li>อ้างอิง - <span>Youtube : LUNGBOY</span></li>
+                                    <li>ดูเพิ่มเติม - <span><a
+                                                href="https://drive.google.com/file/d/1hVRndn90Gtmko5wVS7tcPcu044vyehUk/view?usp=drive_link"
+                                                target="_blank">คลิกเพื่อดูรูปภาพเพิ่มเติม</a></span></li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class=" work__card mix section">
+                            <img src="img/buengkan.png" alt="" class="work__img">
+                            <h3 class="work__title">BuengKan Website</h3>
+                            <p class="details__description">เว็บไซต์เเนะนำการท่องเที่ยวจังหวัดบึงกาฬ
+                                ถูกสร้างขึ้นเพื่อเป็นผลงานในโปรเจคจบของวิชาโครงงาน วิทยาลัยเทคโนโลยีภูมิพิชญ...</p>
+                            <span class="work__button">รายละเอียดเพิ่มเติม
+                                <i class="uil uil-arrow-right work__button-icon"></i>
+                            </span>
+                            <div class="portfolio__item-details">
+                                <h3 class="details__title">BuengKan Website</h3>
+                                <p class="details__description">เว็บไซต์เเนะนำการท่องเที่ยวจังหวัดบึงกาฬ
+                                    ถูกสร้างขึ้นเพื่อเป็นผลงานในโปรเจคจบของวิชาโครงงาน วิทยาลัยเทคโนโลยีภูมิพิชญ</p>
+                                <ul class="details__info">
+                                    <li>ถูกสร้างเมื่อ - <span>29 พฤษจิกายน 2022</span></li>
+                                    <li>เครื่องมือ - <span>html css </span></li>
+                                    <li>อ้างอิง - <span>Youtube : LUNGBOY</span></li>
+                                    <li>ดูเพิ่มเติม - <span><a href="https://buengkan-project.web.app/"
+                                                target="_blank">คลิกเพื่อเข้าสู่เว็บไซต์เเนะนำการท่องเที่ยวจังหวัดบึงกาฬ</a></span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+
+                        <div class=" work__card mix design">
+                            <img src="img/Khon-logo.png" alt="" class="work__img">
+                            <h3 class="work__title">Khon LogoDesign</h3>
+                            <p class="details__description">
+                                ตัวอย่างผลงานในการออกเเบบโลโก้โปรเจคเว็บไซต์มรดกวัฒนธรรมโขน....</p>
+                            <span class="work__button">รายละเอียดเพิ่มเติม
+                                <i class="uil uil-arrow-right work__button-icon"></i>
+                            </span>
+                            <div class="portfolio__item-details">
+                                <h3 class="details__title">Khon LogoDesign</h3>
+                                <p class="details__description">
+                                    ตัวอย่างผลงานในการออกเเบบโลโก้โปรเจคเว็บไซต์มรดกวัฒนธรรมโขน
+                                    ถูกสร้างขึ้นเพื่อเป็นผลงานในรายวิชา
+                                    เทคโนโลยีเเละการออกเเบบเว็บไซต์ สาขาเทคโนโลยีสารสนเทศ มหาวิทยาลัยราชภัฏอุดรธานี </p>
+                                <ul class="details__info">
+                                    <li>ถูกสร้างเมื่อ - <span>20 ตุลาคม 2024</span></li>
+                                    <li>เครื่องมือ - <span>Illustrator Photoshop canva</span></li>
+                                    <li>อ้างอิง - <span>Youtube : LUNGBOY</span></li>
+
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class=" work__card mix section">
+                            <img src="img/1.png" alt="" class="work__img">
+                            <h3 class="work__title">Khon Website</h3>
+                            <p class="details__description">เว็บไซต์มรดกวัฒนธรรมโขนไทย
+                                ถูกสร้างขึ้นเพื่อเป็นผลงานในรายวิชา
+                                เทคโนโลยีเเละการออกเเบบเว็บไซต์...</p>
+                            <span class="work__button">รายละเอียดเพิ่มเติม
+                                <i class="uil uil-arrow-right work__button-icon"></i>
+                            </span>
+                            <div class="portfolio__item-details">
+                                <h3 class="details__title">Khon Website</h3>
+                                <p class="details__description">เว็บไซต์มรดกวัฒนธรรมโขนไทย
+                                    ถูกสร้างขึ้นเพื่อเป็นผลงานในรายวิชา
+                                    เทคโนโลยีเเละการออกเเบบเว็บไซต์ สาขาเทคโนโลยีสารสนเทศ มหาวิทยาลัยราชภัฏอุดรธานี </p>
+                                <ul class="details__info">
+                                    <li>ถูกสร้างเมื่อ - <span>29 พฤษจิกายน 2024</span></li>
+                                    <li>เครื่องมือ - <span>html css Javascript</span></li>
+                                    <li>อ้างอิง - <span>Youtube : LUNGBOY</span></li>
+                                    <li>ดูเพิ่มเติม - <span><a href="Khon-Naja/index.html"
+                                                target="_blank">คลิกเพื่อเข้าสู่เว็บไซต์มรดกวัฒนธรรมโขน</a></span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+
+                        <div class=" work__card mix design">
+                            <img src="img/Screenshot 2025-02-11 231725.png" alt="" class="work__img">
+                            <h3 class="work__title">Brochure Design</h3>
+                            <p class="details__description">เป็นผลงานในการออกเเบบโบรชัวร์
+                                ในหัวข้อสถานที่ท่องเที่ยวในชุมชน...</p>
+                            <span class="work__button">รายละเอียดเพิ่มเติม
+                                <i class="uil uil-arrow-right work__button-icon"></i>
+                            </span>
+                            <div class="portfolio__item-details">
+                                <h3 class="details__title">Brochure Design</h3>
+                                <p class="details__description">เป็นผลงานในการออกเเบบโบรชัวร์
+                                    ในหัวข้อสถานที่ท่องเที่ยวในชุมชนรายวิชาการผลิตเเละออกเเบบสื่อสิ่งพิมพ์
+                                    ของสาขาเทคโนโลยีสารสนเทศ มหาวิทยาลัยราชภัฏอุดรธานี </p>
+                                <ul class="details__info">
+                                    <li>ถูกสร้างเมื่อ - <span>28 ธันวาคม 2024</span></li>
+                                    <li>เครื่องมือ - <span>Photoshop canva</span></li>
+                                    <li>อ้างอิง - <span>Youtube : LUNGBOY</span></li>
+                                    <li>ดูเพิ่มเติม - <span><a
+                                                href="https://drive.google.com/file/d/1IrE1371GkJ5tmon-_LZWBod5bK-6TUAT/view?usp=drive_link"
+                                                target="_blank">คลิกเพื่อดูรูปภาพเพิ่มเติม</a></span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class=" work__card mix design">
+                            <img src="img/Beige Aesthetic Photo Collage Vision Board Landscape Poster_20250212_013109_0000.png"
+                                alt="" class="work__img">
+                            <h3 class="work__title">Presentation Design</h3>
+                            <p class="details__description">
+                                ตัวอย่างผลงานในการออกเเบบสไลด์นำเสนอผลเกี่ยวกับคดีที่เกี่ยวข้องกับกฏหมายคอมพิวเตอร์...
+                            </p>
+                            <span class="work__button">รายละเอียดเพิ่มเติม
+                                <i class="uil uil-arrow-right work__button-icon"></i>
+                            </span>
+                            <div class="portfolio__item-details">
+                                <h3 class="details__title">Presentation Design</h3>
+                                <p class="details__description">
+                                    ตัวอย่างผลงานในการออกเเบบสไลด์นำเสนอผลเกี่ยวกับคดีที่เกี่ยวข้องกับกฏหมายคอมพิวเตอร์ซึ่งผมเลือกมาเป็นคดีของดิไอคอนกรุ้ป
+                                    รายวิชากฎหมายเเละจริยธรรมคอมพิวเตอร์
+                                    ของสาขาเทคโนโลยีสารสนเทศ มหาวิทยาลัยราชภัฏอุดรธานี </p>
+                                <ul class="details__info">
+                                    <li>ถูกสร้างเมื่อ - <span>20 ธันวาคม 2024</span></li>
+                                    <li>เครื่องมือ - <span>Photoshop canva</span></li>
+                                    <li>อ้างอิง - <span>Youtube : LUNGBOY</span></li>
+                                    <li>ดูเพิ่มเติม - <span><a
+                                                href="https://drive.google.com/file/d/1wqeMGQ4ZxAqXhV7fynHHMy_cMbID5YDE/view?usp=sharing"
+                                                target="_blank">คลิกเพื่อดูรูปภาพเพิ่มเติม</a></span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class=" work__card mix game">
+                            <img src="img/สีน้ำเงิน สีขาว เรียบง่าย ทันสมัย ท่องเที่ยว ไต้หวัน thumbnail ปกคลิป Youtu_20250212_135122_0000.png"
+                                alt="" class="work__img">
+                            <h3 class="work__title">KhalakhungNhueng Videos</h3>
+                            <p class="details__description">คลิปวิดีโอการถ่ายสถานที่ท่องเที่ยวในชุมชน ความยาววิดีโอ5นาที
+                                รายวิชาการผลิตเเละออกเเบบสื่อสิ่งพิมพ์
+                                ของสาขาเทคโนโลยีสารสนเทศ มหาวิทยาลัยราชภัฏอุดรธานี...</p>
+                            <span class="work__button">รายละเอียดเพิ่มเติม
+                                <i class="uil uil-arrow-right work__button-icon"></i>
+                            </span>
+                            <div class="portfolio__item-details">
+                                <h3 class="details__title">KhalakhungNhueng Design</h3>
+                                <p class="details__description">คลิปวิดีโอการถ่ายสถานที่ท่องเที่ยวในชุมชน
+                                    ความยาววิดีโอ5นาที
+                                    รายวิชาการผลิตเเละออกเเบบสื่อสิ่งพิมพ์
+                                    ของสาขาเทคโนโลยีสารสนเทศ มหาวิทยาลัยราชภัฏอุดรธานี </p>
+                                <ul class="details__info">
+                                    <li>ถูกสร้างเมื่อ - <span>10 กุมภาพันธ์ 2025</span></li>
+                                    <li>เครื่องมือ - <span>capcut Photoshop canva </span></li>
+                                    <li>อ้างอิง - <span>Youtube : LUNGBOY</span></li>
+                                    <li>ดูเพิ่มเติม - <span><a href="https://youtu.be/ti16lerzgBY?si=Orvp-tk1U1EUx9sM"
+                                                target="_blank">คลิกเพื่อรับชมคลิปวิดีโอ</a></span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class=" work__card mix design">
+                            <img src="img/muss.png" alt="" class="work__img">
+                            <h3 class="work__title">Mushroom Sausage Presentation</h3>
+                            <p class="details__description">
+                                ตัวอย่างผลงานในการออกเเบบสไลด์นำเสนอผลเกี่ยวกับการผลิตไส้กรอกจากเห็ด</p>
+                            <span class="work__button">รายละเอียดเพิ่มเติม
+                                <i class="uil uil-arrow-right work__button-icon"></i>
+                            </span>
+                            <div class="portfolio__item-details">
+                                <h3 class="details__title">Mushroom Sausage Presentation</h3>
+                                <p class="details__description">
+                                    ตัวอย่างผลงานในการออกเเบบสไลด์นำเสนอผลเกี่ยวกับการผลิตไส้กรอกจากเห็ดชนิดต่างๆ
+                                    รายวิชาวิทยาศาสตร์สิ่งเเวดล้อมโดยใช้เครื่องมือ canva(ไม่มีการใช้เทมเพลต)
+                                    ของสาขาเทคโนโลยีสารสนเทศ มหาวิทยาลัยราชภัฏอุดรธานี </p>
+                                <ul class="details__info">
+                                    <li>ถูกสร้างเมื่อ - <span>12 มกราคม 2024</span></li>
+                                    <li>เครื่องมือ - <span>Canva</span></li>
+                                    <li>อ้างอิง - <span>Youtube : LUNGBOY</span></li>
+                                    <li>ดูเพิ่มเติม - <span><a
+                                                href="https://drive.google.com/file/d/1cXRRE7pdF5c8XP-gmLqRRuy2wVGHnnj4/view?usp=sharing"
+                                                target="_blank">คลิกเพื่อดูรูปภาพเพิ่มเติม</a></span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class=" work__card mix game">
+                            <img src="img/sport-img.png" alt="" class="work__img">
+                            <h3 class="work__title">Interview Videos</h3>
+                            <p class="details__description">คลิปวิดีโอสัมภาษณ์ผู้ใช้สนามกีฬากลางเเจ้ง
+                                เเละเก็บเเบบประเมินความพึงพอใจ
+                                รายวิชารู้ทันโลกดิจิทัล
+                                ของสาขาเทคโนโลยีสารสนเทศ มหาวิทยาลัยราชภัฏอุดรธานี...</p>
+                            <span class="work__button">รายละเอียดเพิ่มเติม
+                                <i class="uil uil-arrow-right work__button-icon"></i>
+                            </span>
+                            <div class="portfolio__item-details">
+                                <h3 class="details__title">Interview Videos</h3>
+                                <p class="details__description">คลิปวิดีโอสัมภาษณ์ผู้ใช้สนามกีฬากลางเเจ้ง
+                                    เเละเก็บเเบบประเมินความพึงพอใจ
+                                    รายวิชารู้ทันโลกดิจิทัล
+                                    ของสาขาเทคโนโลยีสารสนเทศ มหาวิทยาลัยราชภัฏอุดรธานี </p>
+                                <ul class="details__info">
+                                    <li>ถูกสร้างเมื่อ - <span>20 สิงหาคม 2025</span></li>
+                                    <li>เครื่องมือ - <span>capcut Photoshop canva </span></li>
+                                    <li>อ้างอิง - <span>Youtube : LUNGBOY</span></li>
+                                    <li>ดูเพิ่มเติม - <span><a href="https://www.youtube.com/watch?v=-L39xdrxz14"
+                                                target="_blank">คลิกเพื่อรับชมคลิปวิดีโอ</a></span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+
+
+                        <div class=" work__card mix design">
+                            <img src="img/gittt.png" alt="" class="work__img">
+                            <h3 class="work__title">Github Presentation</h3>
+                            <p class="details__description">
+                                ตัวอย่างผลงานในการออกเเบบสไลด์นำเสนอเว็บไซต์ที่เราสนใจ...</p>
+                            <span class="work__button">รายละเอียดเพิ่มเติม
+                                <i class="uil uil-arrow-right work__button-icon"></i>
+                            </span>
+                            <div class="portfolio__item-details">
+                                <h3 class="details__title">Github Presentation</h3>
+                                <p class="details__description">
+                                    ตัวอย่างผลงานในการออกเเบบสไลด์นำเสนอเว็บไซต์ที่เราสนใจในที่นี้จะเป็นเว็บ github.com
+                                    รายวิชาการปกฺสัมพันธุ์ระหว่างมนุษย์เเละคอมพิวเตอร์ (ไม่มีการใช้เทมเพลต)
+                                    ของสาขาเทคโนโลยีสารสนเทศ มหาวิทยาลัยราชภัฏอุดรธานี </p>
+                                <ul class="details__info">
+                                    <li>ถูกสร้างเมื่อ - <span>7 กรกฎาคม 2025</span></li>
+                                    <li>เครื่องมือ - <span>Canva</span></li>
+                                    <li>อ้างอิง - <span>Youtube : LUNGBOY</span></li>
+                                    <li>ดูเพิ่มเติม - <span><a
+                                                href="https://drive.google.com/file/d/1ukXRq7IH1jAceGKu89c91Rs_BMzPyTwt/view?usp=sharing"
+                                                target="_blank">คลิกเพื่อดูรูปภาพเพิ่มเติม</a></span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class=" work__card mix design">
+                            <img src="img/Eyangwa-stricker.png" alt="" class="work__img">
+                            <h3 class="work__title">Eyangwa Sticker</h3>
+                            <p class="details__description">
+                                ตัวอย่างผลงานในการออกเเบบสติกเกอร์ล้อเลียนเพื่อน...</p>
+                            <span class="work__button">รายละเอียดเพิ่มเติม
+                                <i class="uil uil-arrow-right work__button-icon"></i>
+                            </span>
+                            <div class="portfolio__item-details">
+                                <h3 class="details__title">Eyangwa Sticker</h3>
+                                <p class="details__description">
+                                    ตัวอย่างผลงานในการออกเเบบสติกเกอร์ล้อเลียนเพื่อน
+                                    โดยใช้โปรเเกรมไอบีสเพนท์(โมบายเเอพลิเคชั่น)</p>
+                                <ul class="details__info">
+                                    <li>ถูกสร้างเมื่อ - <span>7 กรกฎาคม 2024</span></li>
+                                    <li>เครื่องมือ - <span>IbisPaint Canva</span></li>
+                                    <li>อ้างอิง - <span>Youtube : LUNGBOY</span></li>
+                                    <li>ดูเพิ่มเติม - <span><a href="img/eyangwasticker.pdf"
+                                                target="_blank">คลิกเพื่อดูรูปภาพเพิ่มเติม</a></span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class=" work__card mix design">
+                            <img src="img/bab.png" alt="" class="work__img">
+                            <h3 class="work__title">Ambus Design</h3>
+                            <p class="details__description">
+                                ตัวอย่างผลงานในการออกเเบบรูปภาพโปรโมทเฟรชชี่ของคณะวิทยาศาสตร์หาวิทยาลัย....</p>
+                            <span class="work__button">รายละเอียดเพิ่มเติม
+                                <i class="uil uil-arrow-right work__button-icon"></i>
+                            </span>
+                            <div class="portfolio__item-details">
+                                <h3 class="details__title">KU-BUS LogoDesign</h3>
+                                <p class="details__description">
+                                    ตัวอย่างผลงานในการออกเเบบรูปภาพโปรโมทเฟรชชี่ของคณะวิทยาศาสตร์หาวิทยาลัยราชภัฏอุดรธานี
+                                    ของสาขาเทคโนโลยีสารสนเทศ </p>
+                                <ul class="details__info">
+                                    <li>ถูกสร้างเมื่อ - <span>6 สิงหาคม 2025</span></li>
+                                    <li>เครื่องมือ - <span>Illustrator canva</span></li>
+                                    <li>อ้างอิง - <span>Youtube : LUNGBOY</span></li>
+                                    <li>ดูเพิ่มเติม - <span><a
+                                                href="https://drive.google.com/drive/folders/18meOSkOknb8NuyWcPlEyKtS0uIUMqItW?usp=sharing"
+                                                target="_blank">คลิกเพื่อดูผลงาน</a></span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+
+
+
+
+
+                    </div>
+
+                </section>
+
+                <section class="testimonials section">
+                    <h2 data-heading="Example" class="section__title">Certificate</h2>
+
+                    <div class="testimonials__container container swiper">
+                        <div class="swiper-wrapper">
+                            <div class="testimonial__card swiper-slide">
+                                <img src="img/CR-1.jpg" alt="Certificate: Exploring Mixed Realities" class="testimonial__img" loading="lazy">
+                                <h4 class="testimonial__description" style="margin-top: .5rem;">Exploring Mixed
+                                    Realities </h4>
+                                <p class="testimonial__description">เกียตริบัตรการอบรม สำรวจโลกความจริงผสม <br>
+                                    (รุ่นที่2) :
+                                    ความรู้ที่ได้รับ เข้าใจเทคโนโลยีเสมือนในรูปเเบบต่างๆ เช่น Vr Mr เเละ Ar
+                                    มากขึ้นเพื่อนำไปปรับใช้ในอนาคต
+                                </p>
+                                <h3 class="testimonial__date">October 22. 2023</h3>
+                            </div>
+
+                            <div class="testimonial__card swiper-slide">
+                                <img src="img/Cr-2.jpg" alt="Certificate: Introduction to Data Analytics and Big Data" class="testimonial__img" loading="lazy">
+                                <h4 class="testimonial__description" style="margin-top: .5rem;">Introduction to Data
+                                    Analytics and big
+                                    data
+                                </h4>
+                                <p class="testimonial__description">เกียตริบัตรการอบรม
+                                    การวิเคราะห์เเละจัดการฐานข้อมูลขนาดใหญ่ (รุ่นที่7)
+                                    :
+                                    <br>ความรู้ที่ได้รับ สังเกตเเละวิเคราะห์ลำดับการจัดการกับข้อมูลขนาดใหญ่
+                                </p>
+                                <h3 class="testimonial__date">October 21. 2023</h3>
+                            </div>
+
+                            <div class="testimonial__card swiper-slide">
+                                <img src="img/test 1.jpg" alt="Certificate: Network Knowledge Test" class="testimonial__img" loading="lazy">
+                                <h4 class="testimonial__description" style="margin-top: .5rem;">
+                                    ทดสอบความรู้เรื่องเครือข่ายคอมพิวเตอร์
+                                </h4>
+                                <p class="testimonial__description">เกียตริบัตรการทดสอบความรู้พื้นฐาน
+                                    ในหัวข้อเครือข่ายคอมพิวเตอร์ <br>:
+                                    มหาวิทยาลัยราชมงคลสุวรรณภูมิ</p>
+                                <h3 class="testimonial__date">October 25. 2023</h3>
+                            </div>
+
+                        </div>
+                        
+                    </div>
+                </section>
+
+            </main>
+
+            <aside class="right-col">
+
+                <section class="qualification section">
+                    <h2 data-heading="My journey" class="section__title">Education</h2>
+                    <div class="qualification__container container grid">
+                        <div class="education">
+                            <h3 class="qualification__title">
+                                <i class="uil uil-backpack"> </i> Elementary school
+                            </h3>
+
+
+                            <div class="timeline">
+                                <div class="timeline__item">
+                                    <div class="circle__dot"></div>
+                                    <h3 class="timeline__title">PLOOKCHIT SCHOOL</h3>
+                                    <p class="timeline__text">Kindergerten - Elementary Grades2
+                                    </p>
+                                    <span class="timeline__date"><i class="uil uil-calendar-alt"></i>
+                                        2008 - 2012
+                                    </span>
+                                </div>
+                            </div>
+
+                            <div class="timeline">
+                                <div class="timeline__item">
+                                    <div class="circle__dot"></div>
+                                    <h3 class="timeline__title">BORIBALPHUMIKHET SCHOOL</h3>
+                                    <p class="timeline__text">Elementary Grades3 - Elementary Grades4</p>
+                                    <span class="timeline__date"><i class="uil uil-calendar-alt"></i>
+                                        2012 - 2015
+                                    </span>
+                                </div>
+                            </div>
+
+                            <div class="timeline">
+                                <div class="timeline__item">
+                                    <div class="circle__dot"></div>
+                                    <h3 class="timeline__title">WATMAINERNPAYOM SCHOOL</h3>
+                                    <p class="timeline__text">Elementary Grades5 - Elementary Grades6</p>
+                                    <span class="timeline__date"><i class="uil uil-calendar-alt"></i>
+                                        2015 - 2018
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="experience">
+                            <h3 class="qualification__title">
+                                <i class="uil uil-graduation-cap"></i> High school
+                            </h3>
+
+
+                            <div class="timeline">
+                                <div class="timeline__item">
+                                    <div class="circle__dot"></div>
+                                    <h3 class="timeline__title">NONGBUANOI NONCHAD NONGHHENWITTTHAYA SCHOLL</h3>
+                                    <p class="timeline__text">Junior hight school 1-3</p>
+                                    <span class="timeline__date"><i class="uil uil-calendar-alt"></i>
+                                        2018 - 2021
+                                    </span>
+                                </div>
+                            </div>
+
+                            <div class="timeline">
+                                <div class="timeline__item">
+                                    <div class="circle__dot"></div>
+                                    <h3 class="timeline__title">PUMPITCHAYATECHNOLOGICAL </h3>
+                                    <p class="timeline__text">Vocational Certificate</p>
+                                    <span class="timeline__date"><i class="uil uil-calendar-alt"></i>
+                                        2021 - 2023
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="timeline">
+                                <div class="timeline__item">
+                                    <div class="circle__dot"></div>
+                                    <h3 class="timeline__title">UDONTHANI RAJABHAT UNIVERSITY</h3>
+                                    <p class="timeline__text">Bachelor of Science</p>
+                                    <span class="timeline__date"><i class="uil uil-calendar-alt"></i>
+                                        2024 - Present
+                                    </span>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </section>
+
+                <div class="card meta">
+                    <div class="section-title">ข้อมูลสรุป</div>
+                    <div class="meta-item">
+                        <h4>การศึกษา</h4><span>UDONTHANI</span>
+                    </div>
+                    <div class="meta-item">
+                        <h4>โทร</h4><span>096-057-9124</span>
+                    </div>
+                    <div class="meta-item">
+                        <h4>อีเมล</h4><span>no09122548@gmail.com</span>
+                    </div>
+                    <div class="meta-item">
+                        <h4>Line</h4><span>_ugboy67</span>
+                    </div>
+                </div>
+
+                <div class="card" style="margin-top:14px">
+                    <div class="section-title">ดาวน์โหลด</div>
+                    <a href="#" class="btn" style="width:100%;display:inline-block;text-align:center">ดาวน์โหลดเรซูเม่
+                        (PDF)</a>
+                </div>
+
+                <div class="card" style="margin-top:14px">
+                    <div class="section-title">ติดตาม</div>
+                    <div style="display:flex;gap:8px;flex-wrap:wrap">
+                        <a class="chip" href="https://www.youtube.com/@dusitphaisan7036" target="_blank"><i
+                                class="uil uil-youtube"></i>ช่อง Youtube</a>
+                        <a class="chip" href="https://www.facebook.com/boydusit.phaisan.1" target="_blank"><i
+                                class="uil uil-facebook-f"></i>Facebook</a>
+                    </div>
+                </div>
+
+                <section id="contact" style="margin-top:18px">
+                    <div class="card">
+                        <div class="section-title">ติดต่อผม</div>
+                        <p style="color:var(--muted);margin-top:6px">ส่งข้อความมาได้เลย
+                            หรือกดอีเมล/โทรตรงจากปุ่มด้านล่าง</p>
+                        <div style="display:flex;gap:10px;margin-top:12px;flex-wrap:wrap">
+                            <a class="btn" href="mailto:no09122548@gmail.com">ส่งอีเมล</a>
+                            <a class="btn-outline" href="tel:0960579124">โทรหา 096-057-9124</a>
+                        </div>
+                    </div>
+                </section>
+
+
+            </aside>
+        </div>
+
+
+
+        <footer>
+            © 2025 Dusit Phaisan — UX/UI Designer • สร้างด้วย ❤️
+        </footer>
+    </div>
+    <script>
+        // Unified filtering + details toggle for both new and original work sections
+        (function () {
+            function q(sel) { return document.querySelector(sel) }
+            function qa(sel) { return Array.from(document.querySelectorAll(sel)) }
+
+            function filterWork(filterValue) {
+                // support values like 'all' or '.section' (the existing data-filter values)
+                qa('.work__card').forEach(function (card) {
+                    if (!filterValue || filterValue === 'all') {
+                        card.style.display = '';
+                        return;
+                    }
+                    try {
+                        // when data-filter has dot selectors (original markup uses data-filter on spans),
+                        // check classes on card
+                        var lookup = filterValue.replace(/^\./, '');
+                        if (card.classList.contains(lookup)) card.style.display = '';
+                        else card.style.display = 'none';
+                    } catch (e) { card.style.display = '' }
+                });
+            }
+
+            function closeAllDetails() { qa('.portfolio__item-details').forEach(function (d) { d.classList.remove('open'); d.style.maxHeight = null; }); }
+
+            document.addEventListener('DOMContentLoaded', function () {
+                // wire up existing span filters (.work__filters)
+                qa('.work__filters .work__item').forEach(function (btn) {
+                    btn.addEventListener('click', function () {
+                        qa('.work__filters .work__item').forEach(function (b) { b.classList.remove('active-work'); });
+                        btn.classList.add('active-work');
+                        var f = btn.dataset.filter || 'all';
+                        filterWork(f);
+                        closeAllDetails();
+                    });
+                });
+
+                // wire up each work card's "รายละเอียดเพิ่มเติม" button to open a modal
+                // modal will use the existing .portfolio__item-details HTML so content is preserved
+                var modal = document.createElement('div');
+                modal.className = 'modal';
+                modal.id = 'project-modal';
+                modal.innerHTML = '\n+          <div class="modal-dialog" role="dialog" aria-modal="true" aria-labelledby="modal-title">\n+            <div class="modal-header">\n+              <h3 id="modal-title" class="modal-title"></h3>\n+              <button class="modal-close" aria-label="ปิด">&times;</button>\n+            </div>\n+            <div class="modal-body" id="modal-body"></div>\n+          </div>';
+                document.body.appendChild(modal);
+
+                var modalDialog = modal.querySelector('.modal-dialog');
+                var modalBody = modal.querySelector('#modal-body');
+                var modalTitle = modal.querySelector('#modal-title');
+                var modalClose = modal.querySelector('.modal-close');
+
+                function openModal(title, contentHtml, imgSrc) {
+                    modalTitle.textContent = title || '';
+                    // build a symmetric grid: image (if present) on the right and content on the left
+                    var hasImage = imgSrc && imgSrc.length > 0;
+                    var gridClass = hasImage ? 'modal-grid' : 'modal-grid no-image';
+                    var imgHtml = '';
+                    if (hasImage) {
+                        // keep the image on the right visually for symmetry on wide screens
+                        imgHtml = '<div class="modal-image" aria-hidden="false"><img src="' + imgSrc + '" alt="' + (title || '') + ' preview"></div>';
+                    }
+                    modalBody.innerHTML = '<div class="' + gridClass + '">' + imgHtml + '<div class="modal-content">' + (contentHtml || '') + '</div></div>';
+                    modal.classList.add('open');
+                    // move focus to close button for a11y
+                    modalClose.focus();
+                }
+
+                function closeModal() {
+                    modal.classList.remove('open');
+                    modalBody.innerHTML = '';
+                }
+
+                qa('.work__card').forEach(function (card) {
+                    var btn = card.querySelector('.work__button');
+                    var details = card.querySelector('.portfolio__item-details');
+                    var titleEl = card.querySelector('.work__title');
+                    var imgEl = card.querySelector('.work__img');
+                    var titleText = titleEl ? titleEl.innerText : '';
+                    var imgSrc = imgEl ? (imgEl.getAttribute('src') || '') : '';
+                    if (!btn || !details) return;
+                    btn.addEventListener('click', function (e) {
+                        e.preventDefault();
+                        // pass thumbnail image source to openModal so we show a visual example
+                        openModal(titleText, details.innerHTML, imgSrc);
+                    });
+                });
+
+                // modal close interactions
+                modalClose.addEventListener('click', closeModal);
+                modal.addEventListener('click', function (e) { if (e.target === modal) closeModal(); });
+                document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeModal(); });
+
+                // Accessibility: allow Enter/Space to activate work items
+                qa('.work__filters .work__item').forEach(function (item) {
+                    item.setAttribute('tabindex', '0');
+                    item.addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ') item.click(); });
+                });
+
+                // Lazy-load images for better performance and responsive UX
+                try {
+                    var imgs = qa('img');
+                    imgs.forEach(function (i) {
+                        // keep avatar eager for immediate hero display
+                        if (i.closest('.avatar')) { i.loading = 'eager'; return; }
+                        if (!i.hasAttribute('loading')) i.loading = 'lazy';
+                    });
+                } catch (e) {/* ignore if qa fails */ }
+
+                // Reveal animation: add .reveal to target elements and use IntersectionObserver
+                try {
+                    var targets = qa('.work__card, .testimonial__card, .card, .qualification__container .timeline__item');
+                    targets.forEach(function (t) { t.classList.add('reveal'); });
+                    var obs = new IntersectionObserver(function (entries) {
+                        entries.forEach(function (ent) {
+                            if (ent.isIntersecting) { ent.target.classList.add('revealed'); obs.unobserve(ent.target); }
+                        });
+                    }, { threshold: 0.12 });
+                    targets.forEach(function (t) { obs.observe(t); });
+                } catch (e) { /* silent */ }
+            });
+        })();
+    </script>
 </body>
+
 </html>
